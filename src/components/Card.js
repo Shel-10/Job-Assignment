@@ -13,8 +13,7 @@ export class Card extends Component{
         
         
         return(
-            <div className={`font-body mx-10 mt-10 rounded shadow-lg flex text-base 
-            ${this.props.data.featured && 'border-l-4 border-cyan-medium'}`}>
+            <div className="mx-20 mt-10 rounded shadow-lg flex text-base border-l-4 border-black">
                 <div className="my-5 mx-5">
                 {/* logo */}
                 <img src={this.props.data.logo} alt="logo" className="h-15" />
@@ -24,25 +23,25 @@ export class Card extends Component{
                     {/* partition */}
                     <div className="flex">
                         {/* company and badge */}
-                        <div className=" mr-3 text-cyan-medium font-medium">{this.props.data.company}</div>
+                        <div className="mr-3 text-cyan-medium font-medium">{this.props.data.company}</div>
                         {this.props.data.new?
-                        <div className="mt-1 mx-2 bg-cyan-medium rounded-2xl"><h4 className="text-sm text-white px-2 font-bold">NEW!</h4></div>:null}
+                        <div className="mx-2 bg-cyan-medium rounded-2xl"><div className="text-sm text-white px-2 py-1 font-bold">NEW!</div></div>:null}
                         {this.props.data.featured?
-                        <div className="mt-1 mx-1 bg-cyan-darker rounded-2xl"><h4 className="text-sm text-white px-2">FEATURED</h4></div>:null}
+                        <div className="mx-2 bg-cyan-darker rounded-2xl"><div className="text-sm text-white px-2 py-1 font-bold">FEATURED</div></div>:null}
                         
                     </div>
 
                     <div>
                         {/* job role */}
-                        <h1 className="pt-2 text-cyan-darker cursor-pointer font-medium flex self-start hover:text-cyan-medium">{this.props.data.position}</h1>
+                        <div className="py-1 text-cyan-darker cursor-pointer font-bold flex self-start hover:text-cyan-medium text-lg">{this.props.data.position}</div>
                     </div>
 
-                    <div className="text-cyan-dark font-medium pt-2">
-                        {/* status */}<ul className="flex list-disc">
-                        <li className="mr-3 list-none">{this.props.data.postedAt}</li>
-                        <li className="mx-3">{this.props.data.contract}</li>
-                        <li className="mx-3">{this.props.data.location}</li>
-                        </ul>
+                    <div className="text-cyan-dark font-medium">
+                        {/* status */}<div className="flex list-disc">
+                        <div className="mr-1 list-none">{this.props.data.postedAt}</div>
+                        <div className="mx-1">&bull; {this.props.data.contract}</div>
+                        <div className="mx-1">&bull; {this.props.data.location}</div>
+                        </div>
                     </div>
                 </div>
                 

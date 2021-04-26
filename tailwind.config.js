@@ -13,7 +13,7 @@ module.exports = {
         body:['Spartan']
       },
 
-      colors:(theme)=>({
+      colors:{
         cyan:{
           light:'#effafa',
           filter:'#eef6f6',
@@ -22,8 +22,8 @@ module.exports = {
           darker:'#2c3a3a'
         }
 
-      })
-    
+      
+      }
     },
   },
   variants: {

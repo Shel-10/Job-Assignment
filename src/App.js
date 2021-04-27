@@ -86,7 +86,7 @@ export default class App extends Component{
       <div className="bg-cyan-light mb-20">
          {Data.filter((post)=>{
            const category=[post.role,post.level,...post.languages,post.tools] //concats properties in array to compare with
-           //console.log(this.state.filterArray)
+           console.log(category)
             //area to add filter conditions
            return post
            

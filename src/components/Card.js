@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {FilterButton} from '../components/FilterButton';
 
 function concatArray(role,languages,level,tools)
                 {
@@ -49,9 +50,10 @@ export class Card extends Component{
                     {/* badges */}<div className="flex justify-end py-7">
                     {concatArray(this.props.data.role,this.props.data.languages,this.props.data.level,this.props.data.tools).map((badge,index) => {
                     return(
-                    <div className="mr-3 bg-cyan-light text-cyan-medium rounded-md cursor-pointer hover:bg-cyan-medium hover:text-cyan-light" key={index}>
+                    /*<div className="mr-3 bg-cyan-light text-cyan-medium rounded-md cursor-pointer hover:bg-cyan-medium hover:text-cyan-light" key={index}>
                     <div className="p-2">{badge}</div> 
-                    </div>                  
+                    </div>*/
+                    <FilterButton name={badge} id={index} key={index} addFiltermeth={this.props.passAddfunc}/>                  
                     )})} 
                 </div>
                 </div>

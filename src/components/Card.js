@@ -53,7 +53,8 @@ export class Card extends Component{
                     /*<div className="mr-3 bg-cyan-light text-cyan-medium rounded-md cursor-pointer hover:bg-cyan-medium hover:text-cyan-light" key={index}>
                     <div className="p-2">{badge}</div> 
                     </div>*/
-                    <FilterButton name={badge} id={index} key={index} addFiltermeth={this.props.passAddfunc}/>                  
+                    <FilterButton name={badge} id={index} key={index} addFiltermeth={this.props.passAddfunc} />
+                    //recent change  here                
                     )})} 
                 </div>
                 </div>

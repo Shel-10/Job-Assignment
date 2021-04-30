@@ -7,54 +7,99 @@ import { FilterBadge } from './components/FilterBadge';
 export default class App extends Component{
   constructor(){
     super();
-    this.filterId=0; //to initialize and probably add in future an id -- variable
+    this.filterId=-1; //to initialize and probably add in future an id -- variable
     this.Body = ""; //contains content of filterbadge
 
     this.state={
-    filterArray:[
-      
-      //format {id:number body:string}
-    ]
-    /* {Body: " ", //deprecated var to reduces state var
-     id: " " */
+      filterArray:[ //format {id:number body:string}
+      ],
+
+      displayList:[...Data] //pushes json of Data.json into displaylist
+    
 
     } //initial state of original array & empty body & id attributes
       
   }
 
-  deleteEvent=(index)=>{
+  deleteEvent=async (index)=>{
     // merges array with original array - - copyfilterArray x filterArray 
     const copyfilterArray=Object.assign([],this.state.filterArray);
 
     copyfilterArray.splice(index,1); //removes element from array based on index
+    
     //set the current state of filterArray to spliced copy 
-    this.setState(
+    await this.setState(
       {
         filterArray:copyfilterArray
       }
     )
+      this.refreshFilter()
       //set state after deleting the element from copyfilter array copyfilterarray ->filterarray
   }
 
-  /*setFilter=(element)=>{
-    this.Body=element.target.innerText;
-      /* deprecated in favor of reducing unnecessary set function
+  refreshFilter=()=>{
+    let refreshedList=[]
+    if(this.state.filterArray.length!==0){
+    refreshedList=Data.filter((element)=>{
+
+      
+      let valueList=[element.role,element.level,...element.languages,...element.tools]
+      if(this.state.filterArray.some((e)=>{
+        return valueList.includes(e.body)}))
+      {
+        return element
+      }
+      else
+      {
+        return 0
+      } 
+
+    })}
+    else
+    {
+      refreshedList=[...Data]
+    }
+   
+    
+    this.setState({
+      displayList:refreshedList
+    })
+    //console.log("refreshed")
+    
+  }
+
+  setFilter=(filterValue)=>{ // --> called into the add filter method()
+    let container=this.state.displayList.filter((packet)=>{
+      const category=[packet.role,packet.level,...packet.languages,...packet.tools]
+      if(category.includes(filterValue))
+      {
+        return packet
+      }
+      else{
+        return 0
+      }
+    })  
       this.setState(
         {
-          Body:element.target.value //takes the value from the element of input and sets it to body
+        displayList:container
         })
-      --ended here
-  }*/
+  }
+  
 
-  addFilter=(element)=>{ //set element
+  addFilter=async (element)=>{ //set element
+    if(!this.state.filterArray.some((e)=>{return e.body===element.target.innerText}))
+    {
     this.Body=element.target.innerText; //take innertext -- combined to replace setFilter function
-    //console.log(this.Body)
     this.filterId=this.filterId + 1;
     const copyfilterArray = Object.assign([],this.state.filterArray)
     copyfilterArray.push({id : this.filterId, body:this.Body}) //removed this.state.body after deprecation
-    this.setState({
+    await this.setState({
       filterArray:copyfilterArray   //set new filter state
     })
+    this.setFilter(this.Body)
+    }
+    
+
   }
 
   render(){
@@ -79,30 +124,24 @@ export default class App extends Component{
          
        </div>
        {/* clear button*/}
-        <div className="absolute right-2 -bottom-5 w-24 bg-cyan-light h-12 mr-20 rounded-r-md shadow-md cursor-pointer">
+        <div className="absolute right-2 -bottom-5 w-24 bg-cyan-light h-12 mr-20 rounded-r-md shadow-md cursor-pointer" 
+        onClick={async ()=>{
+          await this.setState({filterArray:[]}) 
+          this.refreshFilter()}} >
         <span className="flex justify-center items-stretch text-cyan-dark hover:text-cyan-medium hover:underline pt-3">Clear</span>
         </div>
      </header>
       <div className="bg-cyan-light mb-20">
-         {Data.filter((post)=>{
-           const category=[post.role,post.level,...post.languages,post.tools] //concats properties in array to compare with
-           console.log(category)
-            //area to add filter conditions
-           return post
-           
-         }).map((post) => {
+        {this.state.displayList.map((post,index) => {
           return(
-                <Card data={post} key={post.id} passAddfunc={this.addFilter} />    //props and chained function to components
+                <Card data={post} key={index} passAddfunc={this.addFilter}/>    //props and chained function to components
           )})} 
-     </div>
-     {/* experimental */}
+      </div>
+     {/* space block */}
 
-     <div className="pb-10">
-     <input type="text" />     {/*setFilter -- to set data*/} {/* onBlur={this.setFilter} */}
-     <button onClick={this.addFilter}>Add filter</button> {/*addFilter -- to add data*/}
-     </div>
-
-     {/* experimental */}
+     <div className="pb-10"></div>
+          
+     {/* space block */}
     </div>
      
 

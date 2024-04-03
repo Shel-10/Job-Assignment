@@ -1,33 +1,34 @@
-module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html","./src/**/*.{js,jsx,tsx}"],
+  mode:"jit",
   theme: {
     extend: {
-      backgroundImage:(theme)=>(
-        {
-          'header-desktop':"url('/src/images/bg-header-desktop.svg')",
-          'header-mobile':"url('/src/images/bg-header-mobile.svg')"
-        }
-      ),
       fontFamily:{
-        body:['Spartan']
+        poppins: ["Poppins", "sans-serif"],
       },
-
+      backgroundImage:{
+        'header-desktop':"url('/src/assets/bg-header-desktop.svg')",
+        'header-mobile':"url('/src/assets/bg-header-mobile.svg')"
+      },
       colors:{
+        primary:'#5ba4a4',
         cyan:{
           light:'#effafa',
           filter:'#eef6f6',
-          medium:'#5ba4a4',
           dark:'#7b8e8e',
           darker:'#2c3a3a'
         }
-
-      
       }
     },
-  },
-  variants: {
-    extend: {},
+    screens: {
+      xs: "375px",
+      ss: "620px",
+      sm: "768px",
+      md: "1060px",
+      lg: "1200px",
+      xl: "1700px",
+    },
   },
   plugins: [],
 }

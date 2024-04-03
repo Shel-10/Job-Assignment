@@ -1,8 +1,19 @@
-[
+import photosnap from "../assets/photosnap.svg";
+import manage from "../assets/manage.svg";
+import account from "../assets/account.svg";
+import myhome from "../assets/myhome.svg";
+import loopstudios from "../assets/loop-studios.svg";
+import eyecam from "../assets/eyecam-co.svg";
+import shortly from "../assets/shortly.svg";
+import insure from "../assets/insure.svg"
+import faceit from "../assets/faceit.svg";
+import airfilter from "../assets/the-air-filter-company.svg"
+
+const data = [
   {
     "id": 1,
     "company": "Photosnap",
-    "logo": "src/assets/photosnap.svg",
+    "logo": photosnap,
     "recent": true,
     "featured": true,
     "position": "Senior Frontend Developer",
@@ -17,7 +28,7 @@
   {
     "id": 2,
     "company": "Manage",
-    "logo": "src/assets/manage.svg",
+    "logo": manage,
     "recent": true,
     "featured": true,
     "position": "Fullstack Developer",
@@ -32,7 +43,7 @@
   {
     "id": 3,
     "company": "Account",
-    "logo": "src/assets/account.svg",
+    "logo": account,
     "recent": true,
     "featured": false,
     "position": "Junior Frontend Developer",
@@ -47,7 +58,7 @@
   {
     "id": 4,
     "company": "MyHome",
-    "logo": "src/assets/myhome.svg",
+    "logo": myhome,
     "recent": false,
     "featured": false,
     "position": "Junior Frontend Developer",
@@ -62,7 +73,7 @@
   {
     "id": 5,
     "company": "Loop Studios",
-    "logo": "src/assets/loop-studios.svg",
+    "logo": loopstudios,
     "recent": false,
     "featured": false,
     "position": "Software Engineer",
@@ -77,7 +88,7 @@
   {
     "id": 6,
     "company": "FaceIt",
-    "logo": "src/assets/faceit.svg",
+    "logo": faceit,
     "recent": false,
     "featured": false,
     "position": "Junior Backend Developer",
@@ -92,7 +103,7 @@
   {
     "id": 7,
     "company": "Shortly",
-    "logo": "src/assets/shortly.svg",
+    "logo": shortly,
     "recent": false,
     "featured": false,
     "position": "Junior Developer",
@@ -107,7 +118,7 @@
   {
     "id": 8,
     "company": "Insure",
-    "logo": "src/assets/insure.svg",
+    "logo": insure,
     "recent": false,
     "featured": false,
     "position": "Junior Frontend Developer",
@@ -122,7 +133,7 @@
   {
     "id": 9,
     "company": "Eyecam Co.",
-    "logo": "src/assets/eyecam-co.svg",
+    "logo": eyecam,
     "recent": false,
     "featured": false,
     "position": "Full Stack Engineer",
@@ -137,7 +148,7 @@
   {
     "id": 10,
     "company": "The Air Filter Company",
-    "logo": "src/assets/the-air-filter-company.svg",
+    "logo": airfilter,
     "recent": false,
     "featured": false,
     "position": "Front-end Dev",
@@ -150,3 +161,5 @@
     "tools": ["React", "Sass"]
   }
 ]
+
+export default data;

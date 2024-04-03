@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import data from "./constants/data.json";
+import data from "./constants/data.js";
 import Card from "./components/Card.tsx";
 import Filter from "./components/Filter.tsx";
 import filterJobs from "./components/index.js";

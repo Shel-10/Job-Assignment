@@ -17,11 +17,10 @@ export default function App() {
 
   return (
     <div className="w-full overflow-hidden">
-      <header className="bg-primary bg-header-mobile bg-cover md:bg-header-desktop h-32" />
-      <section className="sm:px-40 px-6 bg-cyan-light">
+      <header className="head" />
+      <section className="section-box bg-cyan-light">
         <Filter />
-
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-12 ss:gap-8 mt-8 ss:mt-2">
           {filteredJobs.map((post, index) => {
             return <Card key={index} data={post} />;
           })}

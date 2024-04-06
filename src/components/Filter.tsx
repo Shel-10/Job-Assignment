@@ -6,8 +6,8 @@ export default function Filter() {
   const filterContext = useFilter();
 
   return (
-    <div className="relative bottom-5 flex flex-row rounded-md bg-white h-12 shadow-2xl">
-      <div className="ml-4 flex items-center justify-start grow gap-3">
+    <div className="filter-bar">
+      <div className="ml-4 flex flex-wrap items-center justify-start grow gap-3">
         {
           filterContext.filterElements?.length > 0 &&
           filterContext.filterElements.map((badge, index) => {

@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        poppins: ["Poppins", "sans-serif"],
+        poppins: ["Spartan", "sans-serif"],
       },
       backgroundImage:{
         'header-desktop':"url('/src/assets/bg-header-desktop.svg')",

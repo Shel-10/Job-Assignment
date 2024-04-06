@@ -10,13 +10,12 @@ export default function FilterButton({ name }: Props) {
 
   return (
     <div
-      className="px-3 py-1.5 bg-cyan-filter font-medium text-primary rounded-md cursor-pointer hover:bg-primary hover:text-cyan-light"
+      className="card-filter-btn hover:bg-primary hover:text-cyan-light transition-color-300"
       onClick={(e) =>
         filterContext?.setFilterElements((prev: string[]) => {
           let targetText = (e.target as HTMLDivElement).innerText;
-          return !prev.includes(targetText) ? [...prev, targetText] : prev
-          }
-        )
+          return !prev.includes(targetText) ? [...prev, targetText] : prev;
+        })
       }
     >
       {name}
